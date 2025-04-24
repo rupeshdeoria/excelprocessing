@@ -1,0 +1,21 @@
+same order, 
+same whare house (Origin State), 
+same day (Transaction Date), 
+same shipping method, 
+same destination (Receiver Zip),
+same Carrier (Carrier),
+same service method (Service Type),
+
+apply group by invoice_Flatten df on columns ['Order Number', 'Tracking Number','Origin State','Transaction Date','Receiver Zip']
+
+prepare group by select lighter package on column Entered Weight (LB)
+
+
+
+-----------------------------------------
+prompt group by:
+
+apply group by invoice_Flatten df on columns ['Order Number', 'Tracking Number','Origin State','Transaction Date','Receiver Zip','Carrier','Service Type']
+and sum []'Freight', 'Fuel','Residential', 'Surcharge', 'Freight Adj', 'Fuel Adj', 'Surcharge Adj','Duties/Tax']
+and also pick first columns for  'Entered Weight (LB)', 'Billed Weight (LB)' with in the group 
+and also select max 
