@@ -19,3 +19,9 @@ apply group by invoice_Flatten df on columns ['Order Number', 'Tracking Number',
 and sum []'Freight', 'Fuel','Residential', 'Surcharge', 'Freight Adj', 'Fuel Adj', 'Surcharge Adj','Duties/Tax']
 and also pick first columns for  'Entered Weight (LB)', 'Billed Weight (LB)' with in the group 
 and also select max 
+
+
+generate bill amount column in grouped_df to sum of Freight, Freight Adj, Fuel, Fuel Adj, Residential, Surcharge, Surcharge Adj, Duties/Tax
+
+
+in groupdf create record window partation by order number and sort by lower Entered Weight and also consider record window is incremental count for next partation
